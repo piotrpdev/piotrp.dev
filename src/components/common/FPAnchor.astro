@@ -1,0 +1,15 @@
+---
+import { twMerge } from "tailwind-merge";
+
+const { target = "_blank", href, wrapperClass = "", ariaLabel } = Astro.props;
+---
+
+<a class:list={[
+        twMerge("text-muted font-medium underline hover:text-gray-700 hover:underline dark:text-gray-400 transition duration-150 ease-in-out", wrapperClass)
+    ]}
+    target={target}
+    href={href}
+    aria-label={ariaLabel}
+>
+    <slot />
+</a>

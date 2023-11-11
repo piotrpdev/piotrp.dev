@@ -128,12 +128,15 @@ export interface Stat {
 }
 
 export interface Item {
+  image?: string | unknown;
   title?: string;
   description?: string;
   icon?: string;
   classes?: Record<string, string>;
   callToAction?: CallToAction;
   image?: Image;
+  cardTag?: string;
+  cardAttributes?: HTMLAttributes<a>;
 }
 
 export interface Price {

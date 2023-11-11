@@ -17,6 +17,14 @@ import Testimonials from '~/components/widgets/Testimonials.astro';
 import { getAsset } from '~/utils/permalinks';
 import Image from '~/components/common/Image.astro';
 import me from '~/assets/images/me.jpg';
+import me2 from '~/assets/images/me2.png';
+import interns from '~/assets/images/interns.png';
+import pipeline from '~/assets/images/pipeline.png';
+import kuby from '~/assets/images/kuby.png';
+import ardisc from '~/assets/images/ardisc.jpg';
+import cao from '~/assets/images/cao.png';
+import redhatW from '~/assets/images/redhat-white.png';
+import FPAnchor from '~/components/common/FPAnchor.astro';
 
 const metadata = {
   title: 'Piotr Płaczek',
@@ -38,10 +46,9 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About me</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Hello there</h3>
       <p>
-        Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
-        pixel becomes a brushstroke in the canvas of imagination.
+        I'm a Software Engineer studying <FPAnchor href="https://www.wit.ie/courses/bsc-hons-in-software-systems-development-degree-course" ariaLabel="SSD course on SETU Website">Software Systems Development</FPAnchor> at the <FPAnchor href="https://www.wit.ie/" ariaLabel="SETU Website">South East Technological University</FPAnchor> in Ireland. I'm also Passionate about Music and Gaming.
       </p>
     </Fragment>
 
@@ -62,26 +69,58 @@ const metadata = {
         title: "text-md md:text-lg",
         description: "text-sm md:text-md"
       },
-      container: "pb-12 md:pb-8 lg:pb-8 pt-0 md:pt-0 lg:pt-0"
+      container: "pb-12 md:pb-8 lg:pb-8 pt-0 md:pt-0 lg:pt-0",
+      wrapper: "flex flex-row justify-center items-center"
     }}
     items={[
       {
+        image: {
+          src: interns.src,
+          alt: "Interns"
+        },
         title: 'New Journey at Red Hat',
         description:
           'Meeting amazing colleagues, learning how to work with OpenShift, and writing personal projects.',
-        icon: 'flat-color-icons:document',
+        classes: {
+          panel: "p-0",
+          title: "pl-6 pr-6 pt-4",
+          description: "pl-6 pr-6 pb-6"
+        }
       },
       {
-        title: 'Demo and Previews',
+        image: {
+          src: redhatW.src,
+          alt: "Red Hat Logo",
+          width: "200",
+          aspectRatio: "1.552",
+          class: "mx-auto w-4 rounded-none bg-none shadow-none",
+          layout: "constrained"
+        },
+        title: 'Software Engineering Intern',
         description:
-          'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
-        icon: 'flat-color-icons:template',
+          'OpenShift AI (Edge)',
+        classes: {
+          panel: "rounded-none shadow-none dark:shadow-none backdrop-blur-none border-0 bg-inherit dark:bg-inherit p-0",
+          title: "pl-6 pr-6 pt-4 text-center",
+          description: "pl-6 pr-6 pb-0 text-center",
+          imgWrapper: "p-4 rounded-lg"
+        },
+        cardTag: "div",
+        cardAttributes: { class: "flex flex-col justify-center" },
       },
       {
+        image: {
+          src: pipeline.src,
+          alt: "Pipeline"
+        },
         title: 'Bringing AI to the Edge!',
         description:
           'Contributing to OpenDataHub, working with OpenShift Pipelines, and writing documentation.',
-        icon: 'flat-color-icons:voice-presentation',
+        classes: {
+          panel: "p-0",
+          title: "pl-6 pr-6 pt-4",
+          description: "pl-6 pr-6 pb-6"
+        }
       },
     ]}
   >
@@ -102,26 +141,57 @@ const metadata = {
         title: "text-md md:text-lg",
         description: "text-sm md:text-md"
       },
-      container: "py-12 md:py-8 lg:py-8 pt-0 md:pt-0 lg:pt-0"
+      container: "pb-12 md:pb-8 lg:pb-8 pt-0 md:pt-0 lg:pt-0",
+      wrapper: "flex flex-row justify-center items-center"
     }}
     items={[
       {
-        title: 'Installation Instructions',
+        image: {
+          src: cao.src,
+          alt: "CAO Calculator"
+        },
+        title: 'CAO Calculator',
         description:
-          'Offer clear instructions on how to download the purchased templates and install them on various website platforms or content management systems.',
-        icon: 'flat-color-icons:document',
+          'Android app that helps calculate how many CAO points you need to qualify for a course.',
+        classes: {
+          panel: "p-0",
+          title: "pl-6 pr-6 pt-4",
+          description: "pl-6 pr-6 pb-6"
+        },
+        cardTag: "a",
+        cardAttributes: { target: "_blank", href: "https://cao-calculator.vercel.app/", ariaLabel: "CAO Calculator" },
       },
       {
-        title: 'Demo and Previews',
+        image: {
+          src: ardisc.src,
+          alt: "Arduino Discord Controller"
+        },
+        title: 'Arduino Discord Controller',
         description:
-          'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
-        icon: 'flat-color-icons:template',
+          'Controlling Discord using a combination of Arduino, BetterDiscord, and Python.',
+        classes: {
+          panel: "p-0",
+          title: "pl-6 pr-6 pt-4",
+          description: "pl-6 pr-6 pb-6"
+        },
+        cardTag: "a",
+        cardAttributes: { target: "_blank", href: "https://github.com/piotrpdev/Arduino-Discord-Controller", ariaLabel: "Arduino Discord Controller" },
       },
       {
-        title: 'Technical Support',
+        image: {
+          src: kuby.src,
+          alt: "Kuby"
+        },
+        title: 'Kuby',
         description:
-          'Providing customer support for any technical issues related to the templates or their implementation.',
-        icon: 'flat-color-icons:voice-presentation',
+          'Simple visualization of Kubernetes resources, using a CLI written in Go.',
+        classes: {
+          panel: "p-0",
+          title: "pl-6 pr-6 pt-4",
+          description: "pl-6 pr-6 pb-6"
+        },
+        cardTag: "a",
+        cardAttributes: { target: "_blank", href: "https://github.com/piotrpdev/kuby", ariaLabel: "Kuby" },
       },
     ]}
   >
