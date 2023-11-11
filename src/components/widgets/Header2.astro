@@ -52,14 +52,14 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
 <header
   class:list={[
     { sticky: isSticky, relative: !isSticky, dark: isDark },
-    "top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out",
+    "top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out md:self-center",
   ]}
   {...id ? { id } : {}}
 >
   <div class="absolute inset-0"></div>
   <div
     class:list={[
-      "relative text-default py-3 px-3 mx-auto w-full",
+      "relative text-default py-3 px-3 mx-auto w-full md:flex md:flex-col md:items-center md:gap-y-4",
       {
         "max-w-7xl": !isFullWidth,
       },
@@ -78,7 +78,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium"
+        class="flex flex-col md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:items-center"
       >
         {
           links.map(({ text, href, links }) => (

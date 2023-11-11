@@ -1,29 +1,15 @@
 ---
 import Layout from '~/layouts/LeftLayout.astro';
-
-import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
 import FPCards from '~/components/widgets/FPCards.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import FPAvatar from '~/components/widgets/FPAvatar.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero2 from '~/components/widgets/Hero2.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import { getAsset } from '~/utils/permalinks';
-import Image from '~/components/common/Image.astro';
 import me from '~/assets/images/me.jpg';
-import me2 from '~/assets/images/me2.png';
 import interns from '~/assets/images/interns.png';
 import pipeline from '~/assets/images/pipeline.png';
 import kuby from '~/assets/images/kuby.png';
 import ardisc from '~/assets/images/ardisc.jpg';
 import cao from '~/assets/images/cao.png';
-import redhatW from '~/assets/images/redhat-white.png';
+import redhatB from '~/assets/images/redhat-black.png';
+import redhatR from '~/assets/images/redhat-red.png';
 import FPAnchor from '~/components/common/FPAnchor.astro';
 
 const metadata = {
@@ -37,7 +23,7 @@ const metadata = {
     id="hero"
     columns={3}
     classes={{
-      container: 'pt-0 md:pt-0 lg:pt-8 pb-8 md:pb-6 lg:pb-6 max-w-4xl',
+      container: 'pt-0 md:pt-0 lg:pt-0 3xl:pt-0 pb-0 md:pb-0 lg:pb-0 max-w-4xl',
       content: 'flex flex-row-reverse'
     }}
     image={{
@@ -46,14 +32,10 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Hello there</h3>
-      <p>
+      <h3 class="text-2xl font-bold tracking-tight text-center md:text-left dark:text-white sm:text-3xl mb-2">Hello there</h3>
+      <p class="text-center md:text-left">
         I'm a Software Engineer studying <FPAnchor href="https://www.wit.ie/courses/bsc-hons-in-software-systems-development-degree-course" ariaLabel="SSD course on SETU Website">Software Systems Development</FPAnchor> at the <FPAnchor href="https://www.wit.ie/" ariaLabel="SETU Website">South East Technological University</FPAnchor> in Ireland. I'm also Passionate about Music and Gaming.
       </p>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </FPAvatar>
 
@@ -69,8 +51,8 @@ const metadata = {
         title: "text-md md:text-lg",
         description: "text-sm md:text-md"
       },
-      container: "pb-12 md:pb-8 lg:pb-8 pt-0 md:pt-0 lg:pt-0",
-      wrapper: "flex flex-row justify-center items-center"
+      container: "pb-0 md:pb-0 lg:pb-0 pt-0 md:pt-0 lg:pt-0",
+      wrapper: "flex flex-row justify-center items-end"
     }}
     items={[
       {
@@ -84,25 +66,30 @@ const metadata = {
         classes: {
           panel: "p-0",
           title: "pl-6 pr-6 pt-4",
-          description: "pl-6 pr-6 pb-6"
-        }
+          description: "pl-6 pr-6 pb-6",
+          imgWrapper: "m-0"
+        },
+        cardTag: "a",
+        cardAttributes: { class: "contents" },
       },
       {
         image: {
-          src: redhatW.src,
+          lightSrc: redhatB.src,
+          darkSrc: redhatR.src,
           alt: "Red Hat Logo",
           width: "200",
           aspectRatio: "1.552",
           class: "mx-auto w-4 rounded-none bg-none shadow-none",
           layout: "constrained"
         },
+        themedImages: true,
         title: 'Software Engineering Intern',
         description:
           'OpenShift AI (Edge)',
         classes: {
           panel: "rounded-none shadow-none dark:shadow-none backdrop-blur-none border-0 bg-inherit dark:bg-inherit p-0",
           title: "pl-6 pr-6 pt-4 text-center",
-          description: "pl-6 pr-6 pb-0 text-center",
+          description: "pl-6 pr-6 pb-6 text-center",
           imgWrapper: "p-4 rounded-lg"
         },
         cardTag: "div",
@@ -119,14 +106,14 @@ const metadata = {
         classes: {
           panel: "p-0",
           title: "pl-6 pr-6 pt-4",
-          description: "pl-6 pr-6 pb-6"
-        }
+          description: "pl-6 pr-6 pb-6",
+          imgWrapper: "m-0"
+        },
+        cardTag: "a",
+        cardAttributes: { class: "contents" },
       },
     ]}
   >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
   </FPCards>
 
   <FPCards
@@ -141,8 +128,8 @@ const metadata = {
         title: "text-md md:text-lg",
         description: "text-sm md:text-md"
       },
-      container: "pb-12 md:pb-8 lg:pb-8 pt-0 md:pt-0 lg:pt-0",
-      wrapper: "flex flex-row justify-center items-center"
+      container: "pb-0 md:pb-0 lg:pb-0 pt-0 md:pt-0 lg:pt-0",
+      wrapper: "flex flex-row justify-center items-end",
     }}
     items={[
       {
@@ -156,10 +143,11 @@ const metadata = {
         classes: {
           panel: "p-0",
           title: "pl-6 pr-6 pt-4",
-          description: "pl-6 pr-6 pb-6"
+          description: "pl-6 pr-6 pb-6",
+          imgWrapper: "m-0"
         },
         cardTag: "a",
-        cardAttributes: { target: "_blank", href: "https://cao-calculator.vercel.app/", ariaLabel: "CAO Calculator" },
+        cardAttributes: { class: "contents", target: "_blank", href: "https://cao-calculator.vercel.app/", ariaLabel: "CAO Calculator" },
       },
       {
         image: {
@@ -172,10 +160,11 @@ const metadata = {
         classes: {
           panel: "p-0",
           title: "pl-6 pr-6 pt-4",
-          description: "pl-6 pr-6 pb-6"
+          description: "pl-6 pr-6 pb-6",
+          imgWrapper: "m-0"
         },
         cardTag: "a",
-        cardAttributes: { target: "_blank", href: "https://github.com/piotrpdev/Arduino-Discord-Controller", ariaLabel: "Arduino Discord Controller" },
+        cardAttributes: { class: "contents", target: "_blank", href: "https://github.com/piotrpdev/Arduino-Discord-Controller", ariaLabel: "Arduino Discord Controller" },
       },
       {
         image: {
@@ -188,15 +177,13 @@ const metadata = {
         classes: {
           panel: "p-0",
           title: "pl-6 pr-6 pt-4",
-          description: "pl-6 pr-6 pb-6"
+          description: "pl-6 pr-6 pb-6",
+          imgWrapper: "m-0"
         },
         cardTag: "a",
-        cardAttributes: { target: "_blank", href: "https://github.com/piotrpdev/kuby", ariaLabel: "Kuby" },
+        cardAttributes: { class: "contents", target: "_blank", href: "https://github.com/piotrpdev/kuby", ariaLabel: "Kuby" },
       },
     ]}
   >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
   </FPCards>
 </Layout>

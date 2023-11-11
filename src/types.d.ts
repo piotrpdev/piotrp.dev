@@ -129,6 +129,7 @@ export interface Stat {
 
 export interface Item {
   image?: string | unknown;
+  themedImages? : boolean;
   title?: string;
   description?: string;
   icon?: string;

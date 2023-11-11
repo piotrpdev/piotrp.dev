@@ -41,81 +41,115 @@ const {
       {items.map(
         ({
           image,
+          themedImages = false,
           title,
           description,
           icon,
           callToAction,
           classes: itemClasses = {},
           cardTag: CardTag = "div",
-          cardAttributes = {},
-        }) => (
-          <CardTag {...cardAttributes}>
-            <div
-              class={twMerge(
-                "relative flex flex-col",
-                panelClass,
-                itemClasses?.panel
-              )}
-            >
-              {(icon || defaultIcon) && (
-                <Icon
-                  name={icon || defaultIcon}
-                  class={twMerge(
-                    "mb-2 w-10 h-10",
-                    defaultIconClass,
-                    itemClasses?.icon
-                  )}
-                />
-              )}
-              {
-                image && (
-                  <div class={twMerge(
-                    "relative m-auto",
-                    itemClasses?.imgWrapper
-                  )}>
-                    {typeof image === 'string' ? (
-                      <Fragment set:html={image} />
-                    ) : (
-                      <Image
-                        class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
-                        width={500}
-                        height={200}
-                        widths={[400, 768]}
-                        sizes="(max-width: 768px) 100vw, 432px"
-                        layout="responsive"
-                        {...(image as any)}
-                      />
-                    )}
-                  </div>
-                )
-              }
+          cardAttributes = { class: "contents" },
+        }) => {
+          let lightImage;
+          let darkImage;
+
+          if (themedImages) {
+            lightImage = { ...(image as any), src: (image as any)["lightSrc"], class: twMerge((image as any)["class"], "block dark:hidden") };
+            darkImage = { ...(image as any), src: (image as any)["darkSrc"], class: twMerge((image as any)["class"], "hidden dark:block") };
+
+            delete lightImage["lightSrc"];
+            delete lightImage["darkSrc"];
+            delete darkImage["lightSrc"];
+            delete darkImage["darkSrc"];
+          }
+
+          return (
+            <CardTag {...cardAttributes}>
               <div
                 class={twMerge(
-                  "text-xl font-bold",
-                  titleClass,
-                  itemClasses?.title
+                  "relative flex flex-col",
+                  panelClass,
+                  itemClasses?.panel
                 )}
               >
-                {title}
-              </div>
-              {description && (
-                <p
+                {(icon || defaultIcon) && (
+                  <Icon
+                    name={icon || defaultIcon}
+                    class={twMerge(
+                      "mb-2 w-10 h-10",
+                      defaultIconClass,
+                      itemClasses?.icon
+                    )}
+                  />
+                )}
+                {
+                  image && (
+                    <div class={twMerge(
+                      "relative m-auto",
+                      itemClasses?.imgWrapper
+                    )}>
+                      {typeof image === 'string' ? (
+                        <Fragment set:html={image} />
+                      ) : !themedImages ?
+                        (<Image
+                          class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+                          width={500}
+                          height={200}
+                          widths={[400, 768]}
+                          sizes="(max-width: 768px) 100vw, 432px"
+                          layout="responsive"
+                          {...(image as any)}
+                        />) :
+                        (<Image
+                          class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+                          width={500}
+                          height={200}
+                          widths={[400, 768]}
+                          sizes="(max-width: 768px) 100vw, 432px"
+                          layout="responsive"
+                          {...(lightImage as any)}
+                        />
+                        <Image
+                          class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+                          width={500}
+                          height={200}
+                          widths={[400, 768]}
+                          sizes="(max-width: 768px) 100vw, 432px"
+                          layout="responsive"
+                          {...(darkImage as any)}
+                        />)
+                      }
+                    </div>
+                  )
+                }
+                <div
                   class={twMerge(
-                    "text-muted mt-2",
-                    descriptionClass,
-                    itemClasses?.description
+                    "text-xl font-bold",
+                    titleClass,
+                    itemClasses?.title
                   )}
-                  set:html={description}
-                />
-              )}
-              {callToAction && (
-                <div class="mt-2">
-                  <Button {...callToAction} />
+                >
+                  {title}
                 </div>
-              )}
-            </div>
-          </CardTag>
-        )
+                {description && (
+                  <p
+                    class={twMerge(
+                      "text-muted mt-2",
+                      descriptionClass,
+                      itemClasses?.description
+                    )}
+                    set:html={description}
+                  />
+                )}
+                {callToAction && (
+                  <div class="mt-2">
+                    <Button {...callToAction} />
+                  </div>
+                )}
+              </div>
+            </CardTag>
+          )
+        }
       )}
     </div>
   )
