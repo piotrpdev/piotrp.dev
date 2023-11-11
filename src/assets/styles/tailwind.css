@@ -88,3 +88,60 @@
 .dd *:first-child {
   margin-top: 0;
 }
+
+.body-grid {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+    'header'
+    'main';
+}
+
+.body-grid header {
+  grid-area: header;
+}
+
+.body-grid main {
+  grid-area: main;
+  overflow: auto;
+}
+
+@media (min-width: 768px) {
+  .body-grid {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+      'header header header main main main main main main'
+      'header header header main main main main main main'
+      'header header header main main main main main main';
+    }
+
+    .body-grid section#hero {
+      grid-area: hero;
+    }
+    
+    .body-grid section#experience {
+      grid-area: experience;
+    }
+    
+    .body-grid section#projects {
+      grid-area: projects;
+    }
+
+  .body-grid main {
+    overflow: unset;
+
+    display: grid;
+    /* grid-column: 4 / 10;
+    grid-row: 1 / 3; */
+
+    grid-template-columns: subgrid;
+    grid-template-rows: auto 1fr 1fr;
+    grid-template-areas: 
+      'hero hero hero hero hero hero'
+      'experience experience experience experience experience experience'
+      'projects projects projects projects projects projects';
+  }
+}

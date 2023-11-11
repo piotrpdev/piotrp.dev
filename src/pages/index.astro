@@ -4,9 +4,9 @@ import Layout from '~/layouts/LeftLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import FPCards from '~/components/widgets/FPCards.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
+import FPAvatar from '~/components/widgets/FPAvatar.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
@@ -15,6 +15,7 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import { getAsset } from '~/utils/permalinks';
+import Image from '~/components/common/Image.astro';
 import me from '~/assets/images/me.jpg';
 
 const metadata = {
@@ -24,4 +25,108 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <FPAvatar
+    id="hero"
+    columns={3}
+    classes={{
+      container: 'pt-0 md:pt-0 lg:pt-8 pb-8 md:pb-6 lg:pb-6 max-w-4xl',
+      content: 'flex flex-row-reverse'
+    }}
+    image={{
+      src: me.src,
+      alt: "Avatar"
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About me</h3>
+      <p>
+        Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
+        pixel becomes a brushstroke in the canvas of imagination.
+      </p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FPAvatar>
+
+  <FPCards
+    id="experience"
+    title="Experience"
+    classes={{
+      headline: {
+        title: "text-lg md:text-xl md:text-left",
+        container: "max-w-3xl md:ml-0 md:mb-4"
+      },
+      items: {
+        title: "text-md md:text-lg",
+        description: "text-sm md:text-md"
+      },
+      container: "pb-12 md:pb-8 lg:pb-8 pt-0 md:pt-0 lg:pt-0"
+    }}
+    items={[
+      {
+        title: 'New Journey at Red Hat',
+        description:
+          'Meeting amazing colleagues, learning how to work with OpenShift, and writing personal projects.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Demo and Previews',
+        description:
+          'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Bringing AI to the Edge!',
+        description:
+          'Contributing to OpenDataHub, working with OpenShift Pipelines, and writing documentation.',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FPCards>
+
+  <FPCards
+    id="projects"
+    title="Projects"
+    classes={{
+      headline: {
+        title: "text-lg md:text-xl md:text-left",
+        container: "max-w-3xl md:ml-0 md:mb-4"
+      },
+      items: {
+        title: "text-md md:text-lg",
+        description: "text-sm md:text-md"
+      },
+      container: "py-12 md:py-8 lg:py-8 pt-0 md:pt-0 lg:pt-0"
+    }}
+    items={[
+      {
+        title: 'Installation Instructions',
+        description:
+          'Offer clear instructions on how to download the purchased templates and install them on various website platforms or content management systems.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Demo and Previews',
+        description:
+          'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Technical Support',
+        description:
+          'Providing customer support for any technical issues related to the templates or their implementation.',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FPCards>
 </Layout>
