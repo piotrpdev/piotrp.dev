@@ -11,6 +11,8 @@ import cao from '~/assets/images/cao.png';
 import redhatB from '~/assets/images/redhat-black.png';
 import redhatR from '~/assets/images/redhat-red.png';
 import FPAnchor from '~/components/common/FPAnchor.astro';
+import { Icon } from 'astro-icon/components';
+import { getBlogPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Piotr Płaczek',
@@ -23,7 +25,7 @@ const metadata = {
     id="hero"
     columns={3}
     classes={{
-      container: 'pt-0 md:pt-0 lg:pt-0 3xl:pt-0 pb-0 md:pb-0 lg:pb-0 max-w-4xl',
+      container: 'pt-0 md:pt-0 lg:pt-0 3xl:pt-0 pb-0 md:pb-0 lg:pb-0 max-w-3xl',
       content: 'flex flex-row-reverse'
     }}
     image={{
@@ -32,9 +34,9 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight text-center md:text-left dark:text-white sm:text-3xl mb-2">Hello there</h3>
-      <p class="text-center md:text-left">
-        I'm a Software Engineer studying <FPAnchor href="https://www.wit.ie/courses/bsc-hons-in-software-systems-development-degree-course" ariaLabel="SSD course on SETU Website">Software Systems Development</FPAnchor> at the <FPAnchor href="https://www.wit.ie/" ariaLabel="SETU Website">South East Technological University</FPAnchor> in Ireland. I'm also Passionate about Music and Gaming.
+      <h3 class="text-lg font-bold tracking-tight text-center md:text-left dark:text-white sm:text-3xl mb-2">Hello there</h3>
+      <p class="text-base text-center md:text-left">
+        I'm a Software Engineer studying <FPAnchor href="https://www.wit.ie/courses/bsc-hons-in-software-systems-development-degree-course" ariaLabel="SSD course on SETU Website">Software Systems Development</FPAnchor> at the <FPAnchor href="https://www.wit.ie/" ariaLabel="SETU Website">South East Technological University</FPAnchor> in Ireland. I'm passionate about Music and Gaming.
       </p>
     </Fragment>
   </FPAvatar>
@@ -60,17 +62,19 @@ const metadata = {
           src: interns.src,
           alt: "Interns"
         },
+        subtitle: 'June - August',
         title: 'New Journey at Red Hat',
         description:
           'Meeting amazing colleagues, learning how to work with OpenShift, and writing personal projects.',
         classes: {
           panel: "p-0",
-          title: "pl-6 pr-6 pt-4",
+          subtitle: "pl-6 pr-6 pt-6 uppercase tracking-wide text-xs font-bold text-muted",
+          title: "pl-6 pr-6 pt-2",
           description: "pl-6 pr-6 pb-6",
           imgWrapper: "m-0"
         },
         cardTag: "a",
-        cardAttributes: { class: "contents" },
+        cardAttributes: { class: "flex hover:-translate-y-2.5 transition ease-in duration-200" },
       },
       {
         image: {
@@ -83,12 +87,14 @@ const metadata = {
           layout: "constrained"
         },
         themedImages: true,
+        subtitle: 'June - December 2023',
         title: 'Software Engineering Intern',
         description:
           'OpenShift AI (Edge)',
         classes: {
           panel: "rounded-none shadow-none dark:shadow-none backdrop-blur-none border-0 bg-inherit dark:bg-inherit p-0",
-          title: "pl-6 pr-6 pt-4 text-center",
+          subtitle: "pl-6 pr-6 pt-6 text-center uppercase tracking-wide text-sm font-bold text-muted",
+          title: "pl-6 pr-6 pt-2 text-center",
           description: "pl-6 pr-6 pb-6 text-center",
           imgWrapper: "p-4 rounded-lg"
         },
@@ -100,17 +106,19 @@ const metadata = {
           src: pipeline.src,
           alt: "Pipeline"
         },
+        subtitle: 'September - December',
         title: 'Bringing AI to the Edge!',
         description:
           'Contributing to OpenDataHub, working with OpenShift Pipelines, and writing documentation.',
         classes: {
           panel: "p-0",
-          title: "pl-6 pr-6 pt-4",
+          subtitle: "pl-6 pr-6 pt-6 uppercase tracking-wide text-xs font-bold text-muted",
+          title: "pl-6 pr-6 pt-2",
           description: "pl-6 pr-6 pb-6",
           imgWrapper: "m-0"
         },
         cardTag: "a",
-        cardAttributes: { class: "contents" },
+        cardAttributes: { class: "flex hover:-translate-y-2.5 transition ease-in duration-200" },
       },
     ]}
   >
@@ -118,7 +126,6 @@ const metadata = {
 
   <FPCards
     id="projects"
-    title="Projects"
     classes={{
       headline: {
         title: "text-lg md:text-xl md:text-left",
@@ -147,7 +154,7 @@ const metadata = {
           imgWrapper: "m-0"
         },
         cardTag: "a",
-        cardAttributes: { class: "contents", target: "_blank", href: "https://cao-calculator.vercel.app/", ariaLabel: "CAO Calculator" },
+        cardAttributes: { class: "flex hover:-translate-y-2.5 transition ease-in duration-200", target: "_blank", href: "https://cao-calculator.vercel.app/", ariaLabel: "CAO Calculator" },
       },
       {
         image: {
@@ -164,7 +171,7 @@ const metadata = {
           imgWrapper: "m-0"
         },
         cardTag: "a",
-        cardAttributes: { class: "contents", target: "_blank", href: "https://github.com/piotrpdev/Arduino-Discord-Controller", ariaLabel: "Arduino Discord Controller" },
+        cardAttributes: { class: "flex hover:-translate-y-2.5 transition ease-in duration-200", target: "_blank", href: "https://github.com/piotrpdev/Arduino-Discord-Controller", ariaLabel: "Arduino Discord Controller" },
       },
       {
         image: {
@@ -173,7 +180,7 @@ const metadata = {
         },
         title: 'Kuby',
         description:
-          'Simple visualization of Kubernetes resources, using a CLI written in Go.',
+          'Simple visualization of Kubernetes resources using a CLI written in Go.',
         classes: {
           panel: "p-0",
           title: "pl-6 pr-6 pt-4",
@@ -181,9 +188,17 @@ const metadata = {
           imgWrapper: "m-0"
         },
         cardTag: "a",
-        cardAttributes: { class: "contents", target: "_blank", href: "https://github.com/piotrpdev/kuby", ariaLabel: "Kuby" },
+        cardAttributes: { class: "flex hover:-translate-y-2.5 transition ease-in duration-200", target: "_blank", href: "https://github.com/piotrpdev/kuby", ariaLabel: "Kuby" },
       },
     ]}
   >
+      <Fragment slot="title">
+        <a class="-translate-x-1 hover:bg-white dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg inline-flex px-1 items-center"
+         aria-label="RSS Feed"
+                href={getBlogPermalink()}
+              >
+                Projects <Icon name="tabler:external-link" class="w-5 h-5 ml-2" />
+              </a>
+            </Fragment>
   </FPCards>
 </Layout>

@@ -42,6 +42,7 @@ const {
         ({
           image,
           themedImages = false,
+          subtitle,
           title,
           description,
           icon,
@@ -119,6 +120,18 @@ const {
                           {...(darkImage as any)}
                         />)
                       }
+                    </div>
+                  )
+                }
+                {
+                  subtitle && (
+                    <div
+                      class={twMerge(
+                        "text-sm font-bold",
+                        itemClasses?.subtitle
+                      )}
+                    >
+                      {subtitle}
                     </div>
                   )
                 }
