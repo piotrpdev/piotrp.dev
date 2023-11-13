@@ -14,6 +14,7 @@ import Hero2 from '~/components/widgets/Hero2.astro';
 import Features from '~/components/widgets/Features.astro';
 import me from '~/assets/images/me.jpg';
 import { footerData } from '~/navigation';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'About me',
@@ -29,6 +30,7 @@ const metadata = {
         { text: 'Resume', href: '#resume' },
         { text: 'Porfolio', href: '#porfolio' },
         { text: 'Blog', href: '#blog' },
+        { text: 'Contact', href: getPermalink('/contact') },
       ]}
       socialLinks={footerData.socialLinks}
       isSticky

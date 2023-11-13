@@ -1,12 +1,13 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Contact',
 };
+
 ---
 
 <Layout metadata={metadata}>
@@ -14,28 +15,53 @@ const metadata = {
 
   <HeroText tagline="Contact" title="Let's Connect!" />
 
-  <ContactUs
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
+  <Features3
+  title="These are the way you can reach out to me"
+  columns={3}
+  isAfterContent={true}
+  classes={{
+    container: "md:my-8 lg:my-12"
+  }}
+  items={[
+    {
+      title: 'X (Twitter)',
+      icon: 'tabler:brand-x',
+      callToAction: {
+        target: '_blank',
+        text: 'Send me a DM »',
+        href: 'https://twitter.com/piotrpdev',
+        variant: 'link',
       },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
+      classes: {
+        panel: "justify-center"
+      }
+    },
+    {
+      title: 'Email',
+      icon: 'tabler:mail',
+      callToAction: {
+        target: '_blank',
+        text: 'Send me an Email »',
+        href: 'mailto:piotrpdev@gmail.com',
+        variant: 'link',
       },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
+      classes: {
+        panel: "justify-center"
+      }
+    },
+    {
+      title: 'LinkedIn',
+      icon: 'tabler:brand-linkedin',
+      callToAction: {
+        target: '_blank',
+        text: 'Send me a DM »',
+        href: 'https://www.linkedin.com/in/piotrpdev/',
+        variant: 'link',
+      },
+      classes: {
+        panel: "justify-center"
+      }
+    },
+  ]}
   />
 </Layout>
