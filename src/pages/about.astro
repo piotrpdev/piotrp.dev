@@ -2,7 +2,6 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Header from '~/components/widgets/Header.astro';
-import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features3 from '~/components/widgets/Features3.astro';
@@ -14,9 +13,10 @@ import Features2 from '~/components/widgets/Features2.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Features from '~/components/widgets/Features.astro';
 import me from '~/assets/images/me.jpg';
+import { footerData } from '~/navigation';
 
 const metadata = {
-  title: 'Personal Homepage Demo',
+  title: 'About me',
 };
 ---
 
@@ -25,19 +25,12 @@ const metadata = {
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '#' },
         { text: 'About', href: '#about' },
         { text: 'Resume', href: '#resume' },
         { text: 'Porfolio', href: '#porfolio' },
         { text: 'Blog', href: '#blog' },
-        { text: 'Github', href: 'https://github.com/onwidget' },
       ]}
-      actions={[
-        {
-          text: 'Hire me',
-          href: '#',
-        },
-      ]}
+      socialLinks={footerData.socialLinks}
       isSticky
       showToggleTheme
     />
@@ -49,27 +42,27 @@ const metadata = {
     classes={{ container: 'pt-0 md:pt-0 lg:pt-8' }}
     items={[
       {
-        icon: 'tabler:brand-dribbble',
+        icon: 'tabler:brand-x',
         callToAction: {
           target: '_blank',
-          text: 'Dribbble',
-          href: '#',
+          text: 'Twitter',
+          href: 'https://twitter.com/piotrpdev',
         },
       },
       {
-        icon: 'tabler:brand-behance',
+        icon: 'tabler:brand-github',
         callToAction: {
           target: '_blank',
-          text: 'Behance',
-          href: '#',
+          text: 'GitHub',
+          href: 'https://github.com/piotrpdev',
         },
       },
       {
-        icon: 'tabler:brand-pinterest',
+        icon: 'tabler:brand-linkedin',
         callToAction: {
           target: '_blank',
-          text: 'Pinterest',
-          href: '#',
+          text: 'LinkedIn',
+          href: 'https://www.linkedin.com/in/piotrpdev/',
         },
       },
     ]}
@@ -81,13 +74,18 @@ const metadata = {
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">About me</h3>
       <p>
-        Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
-        pixel becomes a brushstroke in the canvas of imagination.
+        Hi, my name is Piotr (I'm Polish), but you can call me Peter.
       </p>
       <br />
       <p>
-        I find inspiration in the world around me, whether through the pages of a captivating novel, the intricate
-        details of typography, or the vibrant hues of nature during my outdoor escapades.
+        I am currently studying for a <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.wit.ie/courses/bsc-hons-in-software-systems-development-degree-course"> BSc (Hons.) in Software Systems Development</a>
+        from the <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.wit.ie/"> South East Technological University (WIT)</a> in Ireland.
+      </p>
+      <br />
+      <p>
+        I mainly make 
+        things with React and/or TypeScript. However, I have worked with a lot of 
+        languages and technologies over the years including PHP, C++/C#, Python, Docker, etc.
       </p>
       <br />
       <p>If you're curious to dive deeper into my work, you can follow me:</p>
@@ -106,14 +104,14 @@ const metadata = {
     items={[
       {
         title:
-          'Graphic Designer <br /> <span class="font-normal">ABC Design Studio, New York, NY</span> <br /> <span class="text-sm font-normal">2021 - Present</span>',
-        description: `Collaborate with clients to understand design requirements and objectives. <br /> Develop branding solutions, including logos, color palettes, and brand guidelines. <br /> Design marketing materials such as brochures, posters, and digital assets. <br /> Create visually appealing user interfaces for websites and applications.`,
+          'Junior Software Engineer <br /> <span class="font-normal">Great Company&trade;</span> <br /> <span class="text-sm font-normal">June 2025 - Duodecember 2046?</span>',
+        description: `I will be looking for a place to work at after my graduation in 2025. I love working with and learning from like-minded people and I am always looking for new opportunities to grow.`,
         icon: 'tabler:briefcase',
       },
       {
         title:
-          'Junior Graphic Designer <br /> <span class="font-normal">XYZ Creative Agency, Los Angeles, CA</span> <br /> <span class="text-sm font-normal">2018 - 2021</span>',
-        description: `Assisted senior designers in creating design concepts and visual assets. <br /> Contributed to the development of brand identities and marketing collateral. <br /> Collaborated with the marketing team to ensure consistent design across campaigns. <br /> Gained hands-on experience in various design software and tools.`,
+          'Software Engineering Intern <br /> <span class="font-normal">Red Hat, Waterford, Ireland</span> <br /> <span class="text-sm font-normal">June 2023 - December 2023</span>',
+        description: `Part of the <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.redhat.com/en/technologies/cloud-computing/openshift/edge-computing"> Red Hat OpenShift AI Edge</a> team.<br /><br />Worked on a new <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://opendatahub.io/"> Open Data Hub</a> feature that allows a user to take a trained AI/ML model, use <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.redhat.com/en/technologies/cloud-computing/openshift/pipelines"> OpenShift Pipelines</a> to package it with all the dependencies into a container image, and deploy it to <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.redhat.com/en/products/edge"> Edge</a> location(s) (e.g. a factory) (represented by <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.redhat.com/en/technologies/management/advanced-cluster-management"> ACM</a>-managed clusters) in a centralized way.<br /><br />Most of my work can be found on GitHub: <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://github.com/opendatahub-io/ai-edge"> https://github.com/opendatahub-io/ai-edge</a>`,
         icon: 'tabler:briefcase',
       },
     ]}
@@ -123,15 +121,15 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    id="resume"
+    id="education"
     title="Education"
     items={[
       {
-        title: `Master of Fine Arts in Graphic Design <br /> <span class="font-normal">New York University's School of Design</span> <br /> <span class="text-sm font-normal">2018 - 2020</span>`,
+        title: `BSc (Hons.) in Software Systems Development <br /> <span class="font-normal">South East Technological University (WIT)</span> <br /> <span class="text-sm font-normal">September 2021 - June 2025</span>`,
         icon: 'tabler:school',
       },
       {
-        title: `Bachelor of Arts in Graphic Design <br /> <span class="font-normal">New York University's School of Design</span> <br /> <span class="text-sm font-normal">2014 - 2018</span>`,
+        title: `Random Facts and Basic Programming<br /> <span class="font-normal">The Internet&trade;, mainly Google and Stack Overflow</span> <br /> <span class="text-sm font-normal">2003 - Present</span>`,
         icon: 'tabler:school',
       },
     ]}
