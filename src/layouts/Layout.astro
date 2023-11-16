@@ -13,6 +13,7 @@ import Analytics  from "~/components/common/Analytics.astro"
 import BasicScripts from '~/components/common/BasicScripts.astro';
 
 import type { MetaData as MetaDataType } from '~/types';
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Props {
   metadata?: MetaDataType;
@@ -27,6 +28,7 @@ const { language, textDirection } = I18N;
 <html lang={language} dir={textDirection} class="2xl:text-[16px]">
 
   <head>
+    <ViewTransitions />
     <CommonMeta />
     <Favicons />
     <CustomStyles />
