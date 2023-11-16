@@ -3,18 +3,17 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Header from '~/components/widgets/Header.astro';
 import Content from '~/components/widgets/Content.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Hero2 from '~/components/widgets/Hero2.astro';
 import Features from '~/components/widgets/Features.astro';
-import me from '~/assets/images/me.jpg';
 import { footerData } from '~/navigation';
 import { getPermalink } from '~/utils/permalinks';
+import { a } from '~/components/common/A';
+
+import me from '~/assets/images/me.webp';
+import kuby from '~/assets/images/kubyp.webp';
+import ardisc from '~/assets/images/ardiscp.webp';
+import cao from '~/assets/images/caop.webp';
 
 const metadata = {
   title: 'About me',
@@ -27,8 +26,8 @@ const metadata = {
     <Header
       links={[
         { text: 'About', href: '#about' },
-        { text: 'Resume', href: '#resume' },
-        { text: 'Porfolio', href: '#porfolio' },
+        { text: 'Experience', href: '#experience' },
+        { text: 'Projects', href: '#projects' },
         { text: 'Blog', href: '#blog' },
         { text: 'Contact', href: getPermalink('/contact') },
       ]}
@@ -80,14 +79,14 @@ const metadata = {
       </p>
       <br />
       <p>
-        I am currently studying for a <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.wit.ie/courses/bsc-hons-in-software-systems-development-degree-course"> BSc (Hons.) in Software Systems Development</a>
-        from the <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.wit.ie/"> South East Technological University (WIT)</a> in Ireland.
+        I am currently studying for a <Fragment set:html={a("https://www.wit.ie/courses/bsc-hons-in-software-systems-development-degree-course", "BSc (Hons.) in Software Systems Development")} />
+        from the <Fragment set:html={a("https://www.wit.ie/", "South East Technological University (WIT)")} /> in Ireland.
       </p>
       <br />
       <p>
         I mainly make 
-        things with React and/or TypeScript. However, I have worked with a lot of 
-        languages and technologies over the years including PHP, C++/C#, Python, Docker, etc.
+        things with <Fragment set:html={a("https://github.com/piotrpdev/better-wit-preact", "React")} /> and/or <Fragment set:html={a("https://github.com/piotrpdev/expo-license-list", "TypeScript")} />. However, I have worked with a lot of 
+        languages and technologies over the years including <Fragment set:html={a("https://github.com/piotrpdev/strips", "PHP")} />, <Fragment set:html={a("https://github.com/piotrpdev/AutoFocus", "C#")} />, <Fragment set:html={a("https://github.com/piotrpdev/WeBuy-Cex-Price-Tracker", "Python")} />, etc.
       </p>
       <br />
       <p>If you're curious to dive deeper into my work, you can follow me:</p>
@@ -101,20 +100,20 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    id="resume"
+    id="experience"
     title="Work experience"
     items={[
       {
         title:
           'Junior Software Engineer <br /> <span class="font-normal">Great Company&trade;</span> <br /> <span class="text-sm font-normal">June 2025 - Duodecember 2046?</span>',
         description: `I will be looking for a place to work at after my graduation in 2025. I love working with and learning from like-minded people and I am always looking for new opportunities to grow.`,
-        icon: 'tabler:briefcase',
+        icon: 'tabler:award',
       },
       {
         title:
           'Software Engineering Intern <br /> <span class="font-normal">Red Hat, Waterford, Ireland</span> <br /> <span class="text-sm font-normal">June 2023 - December 2023</span>',
-        description: `Part of the <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.redhat.com/en/technologies/cloud-computing/openshift/edge-computing"> Red Hat OpenShift AI Edge</a> team.<br /><br />Worked on a new <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://opendatahub.io/"> Open Data Hub</a> feature that allows a user to take a trained AI/ML model, use <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.redhat.com/en/technologies/cloud-computing/openshift/pipelines"> OpenShift Pipelines</a> to package it with all the dependencies into a container image, and deploy it to <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.redhat.com/en/products/edge"> Edge</a> location(s) (e.g. a factory) (represented by <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://www.redhat.com/en/technologies/management/advanced-cluster-management"> ACM</a>-managed clusters) in a centralized way.<br /><br />Most of my work can be found on GitHub: <a class="text-blue-400 hover:underline dark:text-gray-300" target="_blank" href="https://github.com/opendatahub-io/ai-edge"> https://github.com/opendatahub-io/ai-edge</a>`,
-        icon: 'tabler:briefcase',
+        description: `Part of the ${a("https://www.redhat.com/en/technologies/cloud-computing/openshift/edge-computing", "Red Hat OpenShift AI Edge")} team.<br /><br />Worked on a new ${a("https://opendatahub.io/", "Open Data Hub")} feature that allows a user to take a trained AI/ML model, use ${a("https://www.redhat.com/en/technologies/cloud-computing/openshift/pipelines", "OpenShift Pipelines")} to package it with all the dependencies into a container image, and deploy it to ${a("https://www.redhat.com/en/products/edge", "Edge")} location(s) (e.g. a factory) (represented by ${a("https://www.redhat.com/en/technologies/management/advanced-cluster-management", "ACM")}-managed clusters) in a centralized way.<br /><br />Most of my work can be found on GitHub: ${a("https://github.com/opendatahub-io/ai-edge", "https://github.com/opendatahub-io/ai-edge")}`,
+        icon: 'tabler:brand-redhat',
       },
     ]}
     classes={{ container: 'max-w-3xl' }}
@@ -138,210 +137,44 @@ const metadata = {
     classes={{ container: 'max-w-3xl' }}
   />
 
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Skills"
-    subtitle="Discover the proficiencies that allow me to bring imagination to life through design."
-    columns={3}
-    defaultIcon="tabler:point-filled"
-    items={[
-      {
-        title: 'Graphic design',
-        description: 'Proficient in crafting visually appealing designs that convey messages effectively.',
-      },
-      {
-        title: 'Branding and identity',
-        description: 'Skilled at developing cohesive brand identities, including logos and brand guidelines.',
-      },
-      {
-        title: 'User-centered design',
-        description: 'Experienced in creating user-friendly interfaces and optimizing user experiences.',
-      },
-      {
-        title: 'Adobe Creative Suite',
-        description: 'Skilled in using Photoshop, Illustrator, and InDesign to create and edit visual elements.',
-      },
-      {
-        title: 'Typography',
-        description: 'Adept in selecting and manipulating typefaces to enhance design aesthetics.',
-      },
-      {
-        title: 'Color theory',
-        description: 'Proficient in using color to evoke emotions and enhance visual harmony.',
-      },
-      {
-        title: 'Print and digital design',
-        description: 'Knowledgeable in designing for both print materials and digital platforms.',
-      },
-      {
-        title: 'Attention to detail',
-        description: 'Diligent in maintaining precision and quality in all design work.',
-      },
-      {
-        title: 'Adaptability',
-        description: 'Quick to adapt to new design trends, technologies, and client preferences.',
-      },
-    ]}
-  />
-
   <!-- Content Widget **************** -->
 
   <Content
-    id="porfolio"
-    title="Elevating visual narratives"
-    subtitle="Embark on a design journey that surpasses pixels, entering a realm of imagination. Explore my portfolio, where passion and creativity converge to shape enthralling visual narratives."
     isReversed
+    id="projects"
+    subtitle={`Some of the projects I'm proud of (see my ${a("https://github.com/piotrpdev", "GitHub")} profile for more).`}
+    title="My Projects"
     items={[
       {
-        title: 'Description:',
+        title: 'Well designed',
         description:
-          'Developed a comprehensive brand identity for a tech startup, Tech Innovators, specializing in disruptive innovations. The goal was to convey a modern yet approachable image that resonated with both corporate clients and tech enthusiasts.',
+          'Went through the process of coming up with an idea, designing an app, and publishing the final product.',
       },
       {
-        title: 'Role:',
+        title: 'Various technologies',
         description:
-          'Led the entire branding process from concept to execution. Created a dynamic logo that symbolized innovation, selected a vibrant color palette, and I designed corporate stationery, website graphics, and social media assets.',
+          'Used Expo, React Native, TypeScript, and React Native Paper.',
+      },
+      {
+        title: 'Effective workflow',
+        description:
+          'Worked on the project on a regular basis, using a Kanban board to finish it in a timely manner.',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
-      alt: 'Tech Design Image',
-    }}
     callToAction={{
       target: '_blank',
-      text: 'Go to the project',
-      icon: 'tabler:chevron-right',
-      href: '#',
+      text: 'Go to the project »',
+      class: "text-blue-400 hover:text-gray-800 dark:text-gray-300 underline-offset-4 underline dark:no-underline hover:dark:underline",
+      href: 'https://cao-calculator.vercel.app/',
     }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 1: <br /><span class="text-2xl">Brand identity for tech innovators</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent={true}
-    items={[
-      {
-        title: 'Description:',
-        description:
-          'Designed a captivating event poster for an art and music festival, "ArtWave Fusion," aiming to showcase the synergy between visual art and music genres.',
-      },
-      {
-        title: 'Role:',
-        description: `Translated the festival's creative theme into a visually striking poster. Used bold typography, vibrant colors, and abstract elements to depict the fusion of art and music. Ensured the design captured the festival's vibrant atmosphere.`,
-      },
-    ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1619983081563-430f63602796?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Art and Music Poster Image',
-    }}
-    callToAction={{
-      target: '_blank',
-      text: 'Go to the project',
-      icon: 'tabler:chevron-right',
-      href: '#',
+      src: cao.src,
+      alt: 'CAO Calculator',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        Project 2: <br /><span class="text-2xl">Event poster for art & music festival</span>
-      </h3>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022."
-    items={[
-      {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
-    items={[
-      {
-        title: 'Built on top of Astro 3.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
-      },
-      {
-        title: 'Styled using Tailwind CSS',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-       Gain a competitive advantage by incorporating industry leading practices
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">CAO Calculator</h3>
+        Android app that helps calculate how many CAO points you need to qualify for a course.
     </Fragment>
 
     <Fragment slot="bg">
@@ -355,400 +188,112 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+        title: 'Physical electronics',
+        description: `Combines programming along with real-world tech.`,
       },
       {
-        title: 'Multiple layout possibilities',
+        title: 'Asynchrous communication',
         description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+          'Arduino talks to Python over a custom serial protocol. Discord talks to Python using WebSockets.',
       },
       {
-        title: 'Fully responsive design',
+        title: 'Various programming languages',
         description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+          "Arduino code written in C, Python code written in Python (duh), and BetterDiscord code written in JavaScript.",
       },
     ]}
+    callToAction={{
+      target: '_blank',
+      text: 'Go to the project »',
+      class: "text-blue-400 hover:text-gray-800 dark:text-gray-300 underline-offset-4 underline dark:no-underline hover:dark:underline",
+      href: 'https://github.com/piotrpdev/Arduino-Discord-Controller',
+    }}
     image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
+      src: ardisc.src,
+      alt: 'Arduino Discord Controller',
     }}
   >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
+  <Fragment slot="content">
+    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Arduino Discord Controller</h3>
+      Controlling Discord using a combination of Arduino, <Fragment set:html={a("https://betterdiscord.app/", "BetterDiscord")} />, and Python.
+  </Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
-  <!-- Steps Widget ****************** -->
+    <!-- Content Widget **************** -->
 
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</em>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
-  <!-- Testimonials Widget *********** -->
-
-  <Testimonials
-    title="Client testimonials"
-    subtitle="Discover what clients have to say about their experiences working with me."
-    testimonials={[
-      {
-        testimonial: `She took our vague concept and turned it into a visual masterpiece that perfectly aligned with our goals. Her attention to detail and ability to translate ideas into compelling visuals exceeded our expectations.`,
-        name: 'Mark Thompson',
-        job: 'Creative director',
-        image: {
-          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Mark Thompson Image',
-        },
-      },
-      {
-        testimonial: `She transformed our brand identity with her creative finesse, capturing our essence in every element. Her dedication and talent truly shine through her work.`,
-        name: 'Emily Martinez',
-        job: 'CEO',
-        image: {
-          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80',
-          alt: 'Emily Martinez Image',
-        },
-      },
-      {
-        testimonial: `She has an uncanny ability to communicate emotions and stories. She crafted a logo for our NGO that not only represents our cause but also evokes empathy. Her professionalism and commitment make her a designer of exceptional caliber.`,
-        name: 'Laura Simmons',
-        job: 'Founder of an NGO',
-        image: {
-          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Laura Simmons Image',
-        },
-      },
-      {
-        testimonial: `We entrusted Sarah with revamping our website's user interface, and the results were astounding. Her intuitive design sense enhanced user experience, leading to a significant increase in engagement. She's a designer who truly understands the synergy of aesthetics and functionality.`,
-        name: 'Alex Foster',
-        job: 'Director of web services',
-        image: {
-          src: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Alex Foster Image',
-        },
-      },
-      {
-        testimonial: `She took our vision and elevated it beyond imagination. Her ability to capture brand essence and translate it into design is nothing short of remarkable. Working with her has been an inspiring journey.`,
-        name: 'Jessica Collins',
-        job: 'Product Manager',
-        image: {
-          src: 'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=778&q=80',
-          alt: 'Jessica Collins Image',
-        },
-      },
-      {
-        testimonial: `Her ability to transform concepts into captivating visuals is nothing short of extraordinary. She took our event poster idea and turned it into a visual masterpiece that perfectly captured the essence of our festival. Sarah's dedication, creativity, and knack for delivering beyond expectations make her an invaluable asset to any project.`,
-        name: 'Michael Carter',
-        job: 'Event Coordinator',
-        image: {
-          src: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Michael Carter Image',
-        },
-      },
-    ]}
-  />
-
-  <FAQs
-    title="Still have some doubts?"
-    items={[
-      {
-        title: 'What does this app do?',
-        description:
-          'This app provides a platform for you to easily browse, purchase, download, and use a wide range of website templates for your projects.',
-      },
-      {
-        title: 'How can this app solve my problem?',
-        description:
-          'This app streamlines the process of finding and implementing professional website designs, saving you time and effort in creating visually appealing and functional websites.',
-      },
-      {
-        title: 'Is it available for my device?',
-        description: `Our app is designed for compatibility across various devices and platforms, ensuring accessibility whether you're using a smartphone, tablet, or computer.`,
-      },
-      {
-        title: 'What makes this app different from others?',
-        description:
-          'Our app stands out for its user-friendly interface, extensive template collection, and seamless integration of the purchasing and downloading process, making it highly efficient.',
-      },
-      {
-        title: 'Are there any costs involved?',
-        description:
-          'While the app itself may be free to download, there may be costs associated with purchasing specific templates based on your preferences and project requirements.',
-      },
-    ]}
-  />
-
-  <Features2
-    title="What services do we provide?"
-    subtitle="We offer a wide range of website templates that suit various industries and purposes such as business, portfolio, e-commerce, blog, etc."
-    items={[
-      {
-        title: 'Installation Instructions',
-        description:
-          'Offer clear instructions on how to download the purchased templates and install them on various website platforms or content management systems.',
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Demo and Previews',
-        description:
-          'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Technical Support',
-        description:
-          'Providing customer support for any technical issues related to the templates or their implementation.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <Hero2
-    tagline="Long-form Sales Demo"
-    title="Long-form Sales: Sell with a Story: The Long-form Way!"
-    subtitle="Dive deep into crafting a Landing Page that narrates, persuades, and converts."
-    actions={[
-      { variant: 'primary', text: 'Call to Action', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-      { text: 'Learn more', href: '#' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1621452773781-0f992fd1f5cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1626&q=80',
-      alt: 'Children telling a story. Long-form Sales Landing Page demo',
-    }}
-  />
-
-  <Features3
-    id="features"
-    title="How to use our app?"
-    subtitle="Tired of spending hours crafting documents from scratch? Our app offers an innovative solution. With a wide array of professionally designed templates, you can now create stunning documents in minutes. Explore our templates now and experience the difference."
-    tagline="Step-by-step guide"
-    columns={2}
-    items={[
-      {
-        title: 'Download and install the app',
-        description: `Begin your journey by downloading our user-friendly app from your device's app store or our official website.`,
-        icon: 'tabler:square-number-1',
-      },
-      {
-        title: 'Sign up',
-        description:
-          'Create your account by providing the necessary information, enabling you to access our full range of features.',
-        icon: 'tabler:square-number-2',
-      },
-      {
-        title: 'Browse templates',
-        description: 'Explore our diverse collection of website templates, categorized for easy navigation.',
-        icon: 'tabler:square-number-3',
-      },
-      {
-        title: 'Preview and select a template',
-        description: `Visualize the potential of each template through previews, then choose the one that aligns best with your project's needs.`,
-        icon: 'tabler:square-number-4',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1521517407911-565264e7d82d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
-    columns={3}
-    isBeforeContent={true}
-    items={[
-      {
-        title: 'Educational',
-        description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Interior Design',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Photography',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
-      },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
-  />
-
-  <!-- Content Widget **************** -->
-
-  <Content
+    <Content
+    isAfterContent
     isReversed
     items={[
       {
-        title: 'User-friendly interface',
-        description:
-          'An intuitive and easy-to-navigate interface that allows users to quickly browse and find the templates they need.',
-        icon: 'tabler:wand',
+        title: 'Command Line Interface',
+        description: `Beautiful CLI design thanks to ${a("github.com/charmbracelet/bubbletea", "bubbletea")} and ${a("github.com/charmbracelet/lipgloss", "lipgloss")}.`,
       },
       {
-        title: 'Personalization options',
+        title: 'Fast and efficient',
         description:
-          'Include basic customization tools that let users modify text, colors, images, and other elements within the templates.',
-        icon: 'tabler:settings',
+          'Optimal use of system resources and easy installation thanks to Go.',
       },
       {
-        title: 'Ready-to-use components',
+        title: 'Stable',
         description:
-          'Enhance your designs with ready-to-use elements like graphics, icons, and layouts, saving you time and boosting visual appeal.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Preview Mode',
-        description: 'Provide a preview of each template, allowing users to see how it looks before making a purchase.',
-        icon: 'tabler:carousel-horizontal',
+          `Reliable operation thanks to the official ${a("https://github.com/kubernetes/client-go", "client-go")} package and Go's type-safe error handling.`,
       },
     ]}
+    callToAction={{
+      target: '_blank',
+      text: 'Go to the project »',
+      class: "text-blue-400 hover:text-gray-800 dark:text-gray-300 underline-offset-4 underline dark:no-underline hover:dark:underline",
+      href: 'https://github.com/piotrpdev/kuby',
+    }}
     image={{
-      src: 'https://images.unsplash.com/photo-1576153192621-7a3be10b356e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
-      alt: 'Colorful Image',
+      src: kuby.src,
+      alt: 'Kuby',
     }}
   >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+  <Fragment slot="content">
+    <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Kuby</h3>
+      Simple visualization of Kubernetes resources.
+  </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
-  <!-- CallToAction Widget *********** -->
+    <!-- Features Widget *************** -->
 
-  <CallToAction
-    title="Let's create together"
-    subtitle="Ready to transform your vision into captivating designs?"
-    actions={[{
-      variant:"primary",
-      text: 'Hire me',
-      href: '/',
-    }]}
-  />
-
-  <FAQs
-    title="Pricing FAQs"
-    subtitle="Choosing the right plan is important, and we're here to answer your questions. If you have queries about our pricing options, you're in the right place."
-    columns={1}
+    <Features
+    title="My Hobbies"
+    subtitle="This is what I like doing in my spare time."
     items={[
       {
-        title: 'Do the plans come with customer support?',
+        title: 'Music',
         description:
-          'Absolutely, all plans include access to our dedicated customer support to assist you with any queries or concerns.',
+          `I love music, ${a("https://musescore.com/piotrbplaczek", "I even compose my own sometimes")}. I’m a self taught pianist and I am very passionate about everything involved in music including its history, general theory, etc.`,
+        icon: 'tabler:music',
       },
       {
-        title: 'Is there a trial period for the different plans?',
+        title: 'Electronics',
         description:
-          "Unfortunately, we don't offer trial periods for the plans. However, you can check out our demo section to preview the quality of our templates.",
+          `I like messing around with electronics. I have worked on a couple of small projects <span class="line-through">and tried soldering a few times</span> involving the Arduino, ESP32, Raspberry Pi, etc.`,
+        icon: 'tabler:cpu',
       },
       {
-        title: 'Can I switch between plans?',
+        title: 'Science',
         description:
-          'Certainly! You can easily upgrade or downgrade your plan, at any time, to find the one that best suits your evolving requirements.',
+          `I'm super fascinated by many aspects of Mathemathics (e.g. the ${a("https://en.wikipedia.org/wiki/Banach%E2%80%93Tarski_paradox", "Banach–Tarski paradox")}), Physics (e.g. the ${a("https://www.researchgate.net/figure/The-Milky-Way-Galaxy-is-not-only-being-pulled-by-the-Shapley-Attractor-it-is-being-pushed_fig2_339229459", "Shapley Attractor")}), Chemistry (e.g. the ${a("https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction", "Belousov-Zhabotinsky reaction")}), etc.`,
+        icon: 'tabler:flask',
       },
       {
-        title: 'What payment methods do you accept?',
+        title: 'Gaming',
         description:
-          'We accept major credit cards and online payment methods to ensure a convenient and secure transaction process.',
-      },
-      {
-        title: 'Are there any hidden fees beyond the displayed cost?',
-        description:
-          'No, the subscription cost covers all the features and templates listed under each plan. There are no hidden fees or extra charges.',
+          'I spent a large part of my childhood playing Pokémon Platinum and Black, these days I mostly play Simulation games (e.g. Arma 3 and MFSX) along with Soulsborne games (e.g. Dark Souls).',
+        icon: 'tabler:device-gamepad',
       },
     ]}
   />
@@ -757,8 +302,7 @@ const metadata = {
 
   <BlogLatestPosts
     id="blog"
-    title="Explore my insightful articles on my blog"
-    information={`Dive into a realm of design wisdom and creative inspiration, where you'll find invaluable insights, practical tips, and captivating narratives that elevate and enrich your creative journey.`}
+    title="Check out some of my writing"
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>

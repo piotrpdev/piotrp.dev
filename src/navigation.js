@@ -83,6 +83,6 @@ export const footerData = {
     // { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
   ],
   footNote: `
-    Made using the <a class="text-blue-600 hover:underline dark:text-gray-200" target="_blank" href="https://github.com/onwidget/astrowind"> AstroWind</a> template from <a class="text-blue-600 hover:underline dark:text-gray-200" target="_blank" href="https://onwidget.com/"> onWidget</a>.
+    Made using the beautiful <a class="text-blue-600 hover:underline dark:text-gray-200" target="_blank" href="https://github.com/onwidget/astrowind"> AstroWind</a> template.
   `,
 };

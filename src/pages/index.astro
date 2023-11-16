@@ -2,17 +2,18 @@
 import Layout from '~/layouts/LeftLayout.astro';
 import FPCards from '~/components/widgets/FPCards.astro';
 import FPAvatar from '~/components/widgets/FPAvatar.astro';
-import me from '~/assets/images/me.jpg';
-import interns from '~/assets/images/interns.png';
-import pipeline from '~/assets/images/pipeline.png';
-import kuby from '~/assets/images/kuby.png';
-import ardisc from '~/assets/images/ardisc.jpg';
-import cao from '~/assets/images/cao.png';
+import { Icon } from 'astro-icon/components';
+import { getBlogPermalink, getPermalink } from '~/utils/permalinks';
+import { a } from '~/components/common/A';
+
+import me from '~/assets/images/me.webp';
+import interns from '~/assets/images/interns.webp';
+import pipeline from '~/assets/images/pipeline.webp';
+import kuby from '~/assets/images/kubyp2.webp';
+import ardisc from '~/assets/images/ardiscp2.webp';
+import cao from '~/assets/images/caop2.webp';
 import redhatB from '~/assets/images/redhat-black.png';
 import redhatR from '~/assets/images/redhat-red.png';
-import FPAnchor from '~/components/common/FPAnchor.astro';
-import { Icon } from 'astro-icon/components';
-import { getBlogPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Piotr Płaczek',
@@ -37,7 +38,7 @@ const metadata = {
     <Fragment slot="content">
       <h3 class="text-lg font-bold tracking-tight text-center md:text-left dark:text-white sm:text-3xl mb-2">Hello there</h3>
       <p class="text-base text-center md:text-left">
-        I'm a Software Engineer studying <FPAnchor href="https://www.wit.ie/courses/bsc-hons-in-software-systems-development-degree-course" ariaLabel="SSD course on SETU Website">Software Systems Development</FPAnchor> at the <FPAnchor href="https://www.wit.ie/" ariaLabel="SETU Website">South East Technological University</FPAnchor> in Ireland. I'm passionate about Music and Gaming.
+        I'm a Software Engineer studying <Fragment set:html={a("https://www.wit.ie/courses/bsc-hons-in-software-systems-development-degree-course", "Software Systems Development")} /> at the <Fragment set:html={a("https://www.wit.ie/", "South East Technological University")} /> in Ireland. I'm passionate about Music and Gaming.
       </p>
     </Fragment>
   </FPAvatar>
@@ -202,7 +203,7 @@ const metadata = {
       <Fragment slot="title">
         <a class="-translate-x-1 hover:bg-white dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg inline-flex px-1 items-center"
          aria-label="RSS Feed"
-                href={getBlogPermalink()}
+                href={getPermalink('/about#projects')}
               >
                 Projects <Icon name="tabler:external-link" class="w-5 h-5 ml-2" />
               </a>
