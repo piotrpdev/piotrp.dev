@@ -103,7 +103,7 @@ import { UI } from '~/utils/config';
     }
 
     applyBodyEvents();
-    document.addEventListener('astro:after-swap', () => { applyBodyEvents(); setInitialTheme(); });
+    document.addEventListener('astro:after-swap', () => { setInitialTheme(); applyBodyEvents(); });
 
     function appyHeaderStylesOnScroll() {
       const header = document.getElementById('header');
