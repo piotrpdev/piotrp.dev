@@ -55,6 +55,9 @@
   "overrides": {
     "svelte-chartjs": {
       "svelte": "$svelte"
+    },
+    "astro-compress": {
+      "sharp": "0.32.6" // https://github.com/vercel/nft/issues/371
     }
   },
   "engines": {
