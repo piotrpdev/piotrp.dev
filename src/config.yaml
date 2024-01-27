@@ -60,6 +60,9 @@ apps:
       robots:
         index: false
 
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
 analytics:
   vendors:
     googleAnalytics:
