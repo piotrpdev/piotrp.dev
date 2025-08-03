@@ -59,10 +59,10 @@
       "svelte": "$svelte"
     },
     "astro-compress": {
-      "sharp": "0.32.6"
+      "sharp": "0.34.1"
     }
   },
   "engines": {
-    "node": ">=18.14.1"
+    "node": ">=20"
   }
 }
