@@ -14,52 +14,51 @@
     "lint:eslint": "eslint . --ext .js,.ts,.astro"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.4",
-    "@astrojs/sitemap": "^3.0.5",
-    "@astrojs/svelte": "^5.0.1",
-    "@astrolib/analytics": "^0.5.0",
-    "@astrolib/seo": "^1.0.0-beta.5",
-    "@fontsource-variable/inter": "^5.0.16",
-    "astro": "^4.2.6",
-    "astro-icon": "^1.0.3",
-    "chart.js": "^4.4.0",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.4.2",
+    "@astrojs/svelte": "^5.7.3",
+    "@astrolib/analytics": "^0.6.1",
+    "@astrolib/seo": "^1.0.0-beta.8",
+    "@fontsource-variable/inter": "^5.2.6",
+    "astro": "^4.16.18",
+    "astro-icon": "^1.1.5",
+    "chart.js": "^4.5.0",
     "limax": "4.1.0",
     "lodash.merge": "^4.6.2",
-    "typescript-esbuild": "^0.3.6",
     "svelte": "^4.2.5",
-    "svelte-chartjs": "^3.1.2",
-    "unpic": "^3.16.0"
+    "svelte-chartjs": "^3.1.5",
+    "unpic": "^4.1.3"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^2.1.0",
-    "@astrojs/partytown": "^2.0.4",
-    "@astrojs/tailwind": "5.1.0",
-    "@iconify-json/flat-color-icons": "^1.1.10",
-    "@iconify-json/tabler": "^1.1.104",
-    "@tailwindcss/typography": "^0.5.10",
+    "@astrojs/mdx": "^3.1.9",
+    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/tailwind": "5.1.5",
+    "@iconify-json/flat-color-icons": "^1.2.1",
+    "@iconify-json/tabler": "^1.2.20",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/lodash.merge": "^4.6.9",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
-    "astro-compress": "2.2.8",
+    "astro-compress": "2.3.8",
     "eslint": "^8.56.0",
     "eslint-plugin-astro": "^0.31.3",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
     "js-yaml": "^4.1.0",
     "mdast-util-to-string": "^4.0.0",
-    "prettier": "^3.2.4",
-    "prettier-plugin-astro": "^0.13.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-astro": "^0.14.1",
     "reading-time": "^1.5.0",
-    "sharp": "0.33.2",
+    "sharp": "0.34.3",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.2"
   },
   "overrides": {
     "svelte-chartjs": {
       "svelte": "$svelte"
     },
     "astro-compress": {
-      "sharp": "0.34.1"
+      "sharp": "$sharp"
     }
   },
   "engines": {
